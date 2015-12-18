@@ -1,3 +1,5 @@
 
 admin
 123
+super
+pass

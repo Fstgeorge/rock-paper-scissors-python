@@ -1,6 +1,6 @@
 print("--------------------------------------------")
 print("ROCK! PAPER! or SCISSOR! Account Setup")
-print("version 1.0")
+print("version 1.1")
 print("--------------------------------------------")
 while True:
     username = input("Please enter your username:  >> ")

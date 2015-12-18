@@ -1,23 +1,41 @@
+import time
 print("Made by Fabian St. George. Visit fabianstgeorge.me for more info.")
-print("version 1.0")
+print("version 1.1")
 loose = ("The compter wins")
 win = ("You Win")
 lives = 5
 score = 0
 drew = 0
 computer_lives = 7
+password_list = []
+
 while True:
     print("To being fill in the below information.")
-    username = input("Please enter your username:")
-    password = input("Please enter your password:")
-    searchfile = open("accounts.csv", "r")
+    username = input("Please enter your username: \n>> ")
+    password = input("Please enter your password: \n>> ")
+    searchfile = open("accounts.txt", "r")
     for line in searchfile:
-        if username and password in line:
+        password_list.append(line.strip())
+        if username and password in password_list:
+            print("--------------------------------------------")
             print("ROCK! PAPER! or SCISSOR!")
             print("ROCK!! PAPER!! or SCISSOR!!")
             print("ROCK!!! PAPER!!! or SCISSOR!!!")
+            print("LET'S PLAY!!!!")
+            print("--------------------------------------------")
             print("Access Granted")
-            print("Lives Rules")
+            time.sleep(0.5)
+            print("Loading...")
+            time.sleep(0.5)
+            print("Loading...")
+            time.sleep(0.5)
+            print("Loading...")
+            time.sleep(0.5)
+            print("Welcome to ROCK! PAPER! or SCISSOR!")
+            time.sleep(1)
+            print("--------------------------------------------")
+            print("Lives Rules:")
+            print("--------------------------------------------")
             print("You start with", lives, "lives")
             print("If you loose you loose a live.")
             print("If you draw the lives stay the same.")
@@ -31,77 +49,77 @@ while True:
             print("Good LUCK!!")
             print("--------------------------------------------")
             while True:
-                rps = input("Rock, Paper, Scissors?")
+                rps = input("Rock, Paper, Scissors? \n>> ").lower()
                 import random
 
                 computer = ("rock", "paper", "scissors")
                 computer = random.choice(computer)
-                # Rock if statments
-                if rps == "rock" and computer == "paper":
-                    print("The computer choose", computer)
+
+
+                def you_loose(choose):
+                    print("The computer choose", choose)
                     print("")
                     print(loose)
                     print("")
+                    status()
                     print("")
-                    lives -= 1
-                if rps == "rock" and computer == "scissors":
-                    print("The computer choose", computer)
+
+
+                def you_win(choose):
+                    print("The computer choose", choose)
                     print("")
                     print(win)
                     print("")
+                    status()
                     print("")
+
+
+                def it_a_drew(choose):
+                    print("The computer choose", computer)
+                    print("")
+                    print("You Drew")
+                    print("")
+                    status()
+                    print("")
+
+
+                def status():
+                    print("You have " + str(lives) + " lives.")
+                    print("You got " + str(score) + " correct")
+                    print("You drew " + str(score) + " times")
+                    print("Type 'exit' to leave game. ")
+
+
+                # Rock if statments
+                if rps == "rock" and computer == "paper":
+                    you_loose(computer)
+                    lives -= 1
+                if rps == "rock" and computer == "scissors":
+                    you_win(computer)
                     score += 1
                 # Paper if statments
                 if rps == "paper" and computer == "rock":
-                    print("The computer choose", computer)
-                    print("")
-                    print(loose)
-                    print("")
-                    print("")
+                    you_loose(computer)
                     score += 1
                 if rps == "paper" and computer == "scissors":
-                    print("The computer choose", computer)
-                    print("")
-                    print(win)
-                    print("")
-                    print("")
+                    you_win(computer)
                     lives -= 1
                 # Scissor if statments
                 if rps == "scissors" and computer == "paper":
-                    print("The computer choose", computer)
-                    print("")
-                    print(loose)
-                    print("")
-                    print("")
+                    you_loose(computer)
                     score += 1
                 if rps == "scissors" and computer == "rock":
-                    print("The computer choose", computer)
-                    print("")
-                    print(win)
-                    print("")
-                    print("")
+                    you_win(computer)
                     lives -= 1
                 # dupclicates
                 if rps == "rock" and computer == "rock":
-                    print("The computer choose", computer)
-                    print("")
-                    print("You Drew")
-                    print("")
-                    print("")
+                    it_a_drew(computer)
                     drew += 1
                 if rps == "paper" and computer == "paper":
-                    print("The computer choose", computer)
-                    print("")
-                    print("You Drew")
-                    print("")
-                    print("")
+                    it_a_drew(computer)
                     drew += 1
                 if rps == "scissors" and computer == "scissors":
-                    print("The computer choose", computer)
-                    print("")
-                    print("You Drew")
-                    print("")
-                    print("")
+                    it_a_drew(computer)
                     drew += 1
                 # System
                 if rps == "rules":
@@ -127,7 +145,7 @@ while True:
                     print("You have run out of lives")
                     print("You got", score, "correct")
                     print("You drew", drew, "times")
-                    stop = input("Press enter to exit.")
+                    stop = input("Press enter to exit. \n>> ")
                     import time
 
                     time.sleep(900)
@@ -136,7 +154,7 @@ while True:
                     print("You have run out of lives")
                     print("You got", score, "correct")
                     print("You drew", drew, "times")
-                    stop = input("Press enter to exit.")
+                    stop = input("Press enter to exit. \n>> ")
                     import time
 
                     time.sleep(900)
