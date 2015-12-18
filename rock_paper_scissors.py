@@ -1,7 +1,7 @@
 import time
 print("Made by Fabian St. George. Visit fabianstgeorge.me for more info.")
 print("version 1.1")
-loose = ("The compter wins")
+lose = ("The compter wins")
 win = ("You Win")
 lives = 5
 score = 0
@@ -37,7 +37,7 @@ while True:
             print("Lives Rules:")
             print("--------------------------------------------")
             print("You start with", lives, "lives")
-            print("If you loose you loose a live.")
+            print("If you lose you lose a live.")
             print("If you draw the lives stay the same.")
             print("--------------------------------------------")
             print("MAKE SURE YOU DON'T USE CAPITALS")
@@ -56,10 +56,10 @@ while True:
                 computer = random.choice(computer)
 
 
-                def you_loose(choose):
+                def you_lose(choose):
                     print("The computer choose", choose)
                     print("")
-                    print(loose)
+                    print(lose)
                     print("")
                     status()
                     print("")
@@ -92,21 +92,21 @@ while True:
 
                 # Rock if statments
                 if rps == "rock" and computer == "paper":
-                    you_loose(computer)
+                    you_lose(computer)
                     lives -= 1
                 if rps == "rock" and computer == "scissors":
                     you_win(computer)
                     score += 1
                 # Paper if statments
                 if rps == "paper" and computer == "rock":
-                    you_loose(computer)
+                    you_lose(computer)
                     score += 1
                 if rps == "paper" and computer == "scissors":
                     you_win(computer)
                     lives -= 1
                 # Scissor if statments
                 if rps == "scissors" and computer == "paper":
-                    you_loose(computer)
+                    you_lose(computer)
                     score += 1
                 if rps == "scissors" and computer == "rock":
                     you_win(computer)
@@ -126,12 +126,12 @@ while True:
                     print("*************************************************")
                     print("Rule")
                     print("*************************************************")
-                    print("-Rock looser against Paper")
+                    print("-Rock loser against Paper")
                     print("-Rock beats Scissors")
                     print("-Paper beats Rock")
-                    print("-Paper looses against Scissors")
+                    print("-Paper loses against Scissors")
                     print("-Scissors beat Paper")
-                    print("-Scissors looses against Rock")
+                    print("-Scissors loses against Rock")
                     print("*************************************************")
                 if rps == "display lives":
                     print(lives)
